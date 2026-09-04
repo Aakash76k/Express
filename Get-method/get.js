@@ -30,7 +30,7 @@ app.get("/about", (req, res) => {
     name: "Rahul",
     age: "30",
     height: "6",
-    weight: "76",
+    weight: "76"
   });
 });
 
