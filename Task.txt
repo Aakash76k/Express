@@ -1,0 +1,126 @@
+ Assignments: Express.js Routing Practice
+Task 1: The "Movie Library" (Modular Approach)
+
+Create a separate file named moviesData.js.
+
+Create an array of 3 movie objects inside it (Keys: id, title, releaseYear).
+
+Export this array.
+
+Goal: In your server.js, import this file and create a route /api/movies. When a user visits this route, send the movies array as a JSON response.
+
+Task 2: The "Complex User Profile" (Nested JSON Object)
+Create a route /api/profile. Do not use a separate file, create the data directly inside the route.
+
+Goal: When the user hits this route, they should receive a single JSON object. But this object must be nested.
+
+Format required: It must have normal strings (name, email), an Array for skills (e.g., ["HTML", "CSS", "JS"]), and an Object for address (e.g., { city: "Delhi", pincode: 110001 }).
+
+Task 3: The "Product Finder" (req.params & 404 Error handling)
+Create an array of products in server.js:
+[{ id: 101, name: "Keyboard", price: 500 }, { id: 102, name: "Mouse", price: 300 }]
+
+Goal: Create a route /api/products/:id.
+
+Condition 1: If a user visits /api/products/101, remember to convert req.params.id from String to Number, find the product, and send its data.
+
+Condition 2: If the user visits /api/products/999, the server must send a 404 status code with this exact JSON: { error: true, message: "Product missing!" }.
+
+Task 4: The "Category Filter" (req.query)
+Create an array of food items in server.js:
+[{name: "Burger", type: "FastFood"}, {name: "Apple", type: "Healthy"}, {name: "Pizza", type: "FastFood"}]
+
+Goal: Create a route /api/food.
+
+Condition 1: If the user visits just /api/food, send the entire array.
+
+Condition 2: If the user visits /api/food?type=Healthy, catch the query and use Array.filter() to return ONLY the "Healthy" items.
+
+Task 5: The "Merge & Search" Challenge (Combined Concepts)
+
+Create a file frontend.js and export an array: ["React", "Angular", "Vue"].
+
+Create a file backend.js and export an array: ["Node", "Python", "Java"].
+
+Import both into server.js.
+
+Goal: Create a route /api/tech. Send a combined JSON object that looks like this:
+{ frontendTech: ["React", "Angular", "Vue"], backendTech: ["Node", "Python", "Java"] }
+
+
+new task (params)
+Task 1: The "Instagram Profile" Finder (String Params & Error Handling)
+
+Setup: Create an array containing 3 user objects. Required keys: username, fullName, and followers. (e.g., { username: "webgyaan", fullName: "Ganesh Dutt", followers: 5000 }).
+
+Goal: Create a dynamic route /api/profile/:username.
+
+Condition 1: If a user visits /api/profile/webgyaan in the browser, extract the username using req.params.username, find that specific user from the array, and send their data as a JSON response.
+
+Condition 2: If the user enters a username that does not exist in the array (e.g., /api/profile/salman), prevent the server from crashing. Instead, return a 404 status code with this exact JSON message: { error: "Profile not found!" }.
+
+
+Task 2: The "Bank Account" Lookup (The parseInt Trap)
+
+Setup: Create an array containing data for 3 bank accounts. Required keys: accNo (this must be a Number, e.g., 101, 102), accountHolder, and balance.
+
+Goal: Create a dynamic route /api/account/:accNo.
+
+Condition 1: When a user visits /api/account/102 in their browser, they should receive the JSON details of that specific account.
+
+The Trick: The req.params.accNo received from the URL is always a String (e.g., "102"), but the accNo inside your array is a Number. The main goal of this task is to understand why you must convert the String into a Number (using parseInt() or Number()) before using the Array.find() method.
+
+
+
+--------------------------------
+
+Task 1: The "Employee ID" Lookup (Basic Number Param)
+Setup: Create an array of 3 employees in your file:
+[{ empId: 1, name: "Aman", role: "Developer" }, { empId: 2, name: "Priya", role: "Designer" }, { empId: 3, name: "Rohan", role: "Manager" }].
+Goal: Create a route /api/employees/:empId.
+
+Condition: When a user visits /api/employees/2, use parseInt() to convert the URL parameter into a number, find the employee with empId 2, and send their data.
+
+Task 2: The "Country Capital" Finder (Basic String Param)
+Setup: Create an array of 3 countries:
+[{ country: "india", capital: "New Delhi" }, { country: "japan", capital: "Tokyo" }, { country: "france", capital: "Paris" }].
+Goal: Create a route /api/countries/:countryName.
+
+Condition: When a user visits /api/countries/japan, extract the parameter from the URL, find the matching country object in the array, and send it as a JSON response. (Hint: No need to use parseInt here because it's a word/string!)
+
+Task 3: The "Restaurant Menu" (Params + 404 Error Handling)
+Setup: Create an array of food items:
+[{ id: 101, dish: "Pizza", price: 299 }, { id: 102, dish: "Burger", price: 99 }].
+Goal: Create a route /api/menu/:id.
+
+Condition 1: If the user visits /api/menu/101, send the Pizza details.
+
+Condition 2: If the user visits an ID that does not exist (like /api/menu/999), write an if/else condition to send a 404 status with this message: { message: "Sorry, dish not found!" }.
+
+----
+extra 
+Task 3: The "E-Commerce Laptop" Filter (req.query Basics)
+Setup: Create an array of 4 laptop objects in your file. Required keys: id, brand, and price. (e.g., { id: 1, brand: "Dell", price: 45000 }, keep 2 laptops of the same brand like "HP").
+Goal: Create a route /api/laptops.
+
+Condition 1: If a user visits /api/laptops, send the entire array of laptops.
+
+Condition 2: If a user visits /api/laptops?brand=HP, catch the query parameter and use Array.filter() to send ONLY the HP laptops.
+
+
+
+params and body Task ----
+Task: The "Student Profile Updater" (Params + Body Combo)
+
+Setup: Create an array of students directly in your server.js file:
+[{ id: 1, name: "John", course: "HTML" }, { id: 2, name: "Sarah", course: "CSS" }]
+
+Goal: Create a POST route: /api/students/:id
+
+The Concept: This task combines two concepts. You need req.params to know WHO to update, and req.body to know WHAT new information to put there.
+
+Condition 1: A user sends a POST request to /api/students/1 using Thunder Client. In the JSON body, they send: { "newCourse": "React" }.
+
+Condition 2: Your server must extract the id from the URL, find the matching student in the array, and update their course to the new one sent in the body.
+
+Condition 3: Send the updated student object back in the JSON response.
