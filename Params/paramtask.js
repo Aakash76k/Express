@@ -104,3 +104,30 @@ app.get("/api/countries/:countryName", (req, res) => {
 app.listen(5003, () => {
   console.log("Server is running on http://localhost:5003");
 });
+
+// Task 5: The "Restaurant Menu" (Params + 404 Error Handling)?
+
+
+const menu = [
+  { id: 101, dish: "Pizza", price: 299 },
+  { id: 102, dish: "Burger", price: 99 },
+];
+
+app.get("/api/menu/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+
+  const foodItem = menu.find((item) => item.id === id);
+
+  if (foodItem) {
+    res.json(foodItem);
+  } else {
+    res.status(404).json({
+      message: "Sorry, dish not found!",
+    });
+  }
+});
+
+app.listen(5004, () => {
+  console.log("Server is running on http://localhost:5004");
+});
+
