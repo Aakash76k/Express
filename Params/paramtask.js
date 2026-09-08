@@ -107,7 +107,6 @@ app.listen(5003, () => {
 
 // Task 5: The "Restaurant Menu" (Params + 404 Error Handling)?
 
-
 const menu = [
   { id: 101, dish: "Pizza", price: 299 },
   { id: 102, dish: "Burger", price: 99 },
@@ -130,4 +129,3 @@ app.get("/api/menu/:id", (req, res) => {
 app.listen(5004, () => {
   console.log("Server is running on http://localhost:5004");
 });
-
