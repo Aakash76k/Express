@@ -4,6 +4,8 @@ const app = express();
 const fs = require("fs");
 const path = require("path");
 
+app.use(express.static(__dirname));
+
 const qrFolder = path.join(__dirname, "qr_image");
 if (!fs.existsSync(qrFolder)) {
   fs.mkdirSync(qrFolder);
