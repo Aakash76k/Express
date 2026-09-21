@@ -1,0 +1,17 @@
+<html lang ="en">
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Welcome, <%= name %></h1>
+        <h3> Your Skills : </h3>
+        <ul>
+            <% for(let i =0; i<skills.length; i++){ %>
+                <li><%= skills[i] %></li>
+            <% } %>
+        </ul>
+    </body>
+</html>
+
+<!-- <% %> - logic
+<%= %> - direct print -->
