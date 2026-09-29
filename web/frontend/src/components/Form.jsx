@@ -14,6 +14,10 @@ const Form = () => {
     });
   };
 
+  useEffect(()=>{
+    console.log("data change : ",form);
+  },[form]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
