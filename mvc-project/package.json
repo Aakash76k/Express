@@ -1,12 +1,12 @@
 {
   "dependencies": {
+    "ejs": "^7.0.1",
     "express": "^5.2.1"
   },
   "name": "mvc-project",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
