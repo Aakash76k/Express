@@ -1,39 +1,81 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form using MVC</title>
-      <style>
-        
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MVC Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 320px;
+      box-shadow: 0 4px 15px #0001;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .message {
+      color: #15803d;
+    }
+  </style>
 </head>
 <body>
-    
-    <div>
-        <h2>Registration Form</h2>
-        <% if(message) { %>
-        <p><%= message %></p> <% } %>
+  <div class="container">
+    <h2>Registration Form</h2>
 
-        <form action="/submit" method="Post">
-            <input type="text"
-            name = "name"
-            placeholder="Enter your name"
-            required>
+    <% if (message) { %>
+      <p class="message"><%= message %></p>
+    <% } %>
 
-            <input type="email"
-            name = "email"
-            placeholder="Enter your email"
-            required
-            >
+    <form action="/submit" method="POST">
+      <input
+        type="text"
+        name="name"
+        placeholder="Enter your name"
+        required
+      >
 
-            <input type="tel"
-             name="phone" 
-             placeholder="Enter your phone number"
-             required
-             > 
-             <button type="submit">Submit Form</button>
-        </form>
-    </div>
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      >
+
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Enter your phone"
+        required
+      >
+
+      <button type="submit">Submit Form</button>
+    </form>
+  </div>
 </body>
 </html>
