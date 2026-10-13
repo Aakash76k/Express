@@ -1,12 +1,18 @@
+
 const express = require("express");
 const path = require("path");
-import router from "./routes/formRoutes";
 
 const app = express();
+const PORT = 3000;
 
-app.use("/form");
-app.use("/form",formRoutes);
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
-app.listen(3001,()=>{
-    console.log("server run on http://localhost:3001");
-})
+app.use(express.urlencoded({ extended: true }));
+
+const formRoutes = require("./routes/formRoutes");
+app.use("/", formRoutes);
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
