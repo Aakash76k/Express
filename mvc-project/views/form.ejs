@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form using MVC</title>
+      <style>
+        
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h2>Registration Form</h2>
+        <% if(message) { %>
+        <p><%= message %></p> <% } %>
+
+        <form action="/submit" method="Post">
+            <input type="text"
+            name = "name"
+            placeholder="Enter your name"
+            required>
+
+            <input type="email"
+            name = "email"
+            placeholder="Enter your email"
+            required
+            >
+
+            <input type="tel"
+             name="phone" 
+             placeholder="Enter your phone number"
+             required
+             > 
+             <button type="submit">Submit Form</button>
+        </form>
+    </div>
+</body>
+</html>
