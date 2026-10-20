@@ -12,7 +12,7 @@ const filePath = path.join(__dirname, "data.json");
 app.post("/api/submit", (req, res) => {
   const { name, email } = req.body;
 
-  console.log("data  recevied onserver  :  ", { name, email });
+  console.log("data  recevied on server  :  ", { name, email });
 
   // read json file
 
@@ -53,6 +53,6 @@ app.post("/api/submit", (req, res) => {
     });
   });
 });
-app.listen(5000, () => {
-  console.log("http://localhost:5000");
+app.listen(5001, () => {
+  console.log("http://localhost:5001");
 });

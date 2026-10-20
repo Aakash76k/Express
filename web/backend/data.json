@@ -1,10 +1,1 @@
-[
-  {
-    "name": "kunal",
-    "email": "k@gmail.com"
-  },
-  {
-    "name": " shivam",
-    "email": "s@gmail.com"
-  }
-]
+"[\n  {\n    \"name\": \"kunal\",\n    \"email\": \"k@gmail.com\"\n  },\n  {\n    \"name\": \" shivam\",\n    \"email\": \"s@gmail.com\"\n  },\n  {\n    \"name\": \"divyanshu\",\n    \"email\": \"d@gmail.com\"\n  },\n  {\n    \"name\": \"s\",\n    \"email\": \"s@gmail.com\"\n  }\n]"
